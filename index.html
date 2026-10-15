@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="Écoute les effets sonores Swing, Choc et Allumage du jeu de combat au sabre laser.">
+  <title>Écoute les sons — Sabre laser</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b14;
+      --card: rgba(17, 24, 41, .92);
+      --line: rgba(144, 170, 215, .18);
+      --text: #f4f7ff;
+      --muted: #a6b2c8;
+      --cyan: #69e2ff;
+      --pink: #c18cff;
+      --green: #8affd4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 8% 0%, rgba(48, 112, 176, .25), transparent 38rem),
+        radial-gradient(ellipse at 100% 12%, rgba(131, 70, 176, .18), transparent 34rem),
+        var(--bg);
+      font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(900px, calc(100% - 32px)); margin: auto; padding: 54px 0 72px; }
+    .tag { display: inline-flex; align-items: center; gap: 9px; color: var(--cyan); font-size: .75rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    .tag::before { content: ""; width: 24px; height: 2px; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    h1 { margin: 14px 0 12px; font-size: clamp(2.4rem, 8vw, 5rem); line-height: .98; letter-spacing: -.06em; }
+    h1 span { color: var(--cyan); text-shadow: 0 0 34px rgba(105, 226, 255, .28); }
+    .lead { max-width: 600px; margin: 0; color: var(--muted); font-size: 1.08rem; }
+    .listen-all { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-top: 32px; padding: 18px 20px; border: 1px solid rgba(105, 226, 255, .3); border-radius: 18px; background: linear-gradient(115deg, rgba(29, 58, 82, .78), rgba(22, 25, 43, .88)); box-shadow: 0 18px 60px rgba(0, 0, 0, .22); }
+    .play-mark { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid rgba(105, 226, 255, .45); border-radius: 50%; color: var(--cyan); font-size: 1.1rem; }
+    .listen-all h2 { margin: 0; font-size: 1rem; }
+    .listen-all p { margin: 2px 0 12px; color: var(--muted); font-size: .9rem; }
+    audio { display: block; width: 100%; height: 42px; accent-color: var(--cyan); }
+    .section-label { margin: 34px 0 14px; color: var(--muted); font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .tracks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    article { position: relative; overflow: hidden; min-width: 0; padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); box-shadow: 0 16px 46px rgba(0, 0, 0, .22); }
+    article::before { content: ""; position: absolute; top: 0; left: 20px; width: 54px; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--pink)); box-shadow: 0 0 14px var(--cyan); }
+    .track-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+    h3 { margin: 0; font-size: 1.28rem; }
+    .duration { color: var(--green); font-size: .8rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    article p { min-height: 3.2em; margin: 8px 0 16px; color: var(--muted); font-size: .91rem; }
+    .download { display: inline-block; margin-top: 12px; color: #bdeeff; font-size: .84rem; text-decoration-color: rgba(105, 226, 255, .45); text-underline-offset: 4px; }
+    footer { margin-top: 28px; color: #78859b; font-size: .82rem; }
+    @media (max-width: 700px) {
+      main { padding-top: 36px; }
+      .tracks { grid-template-columns: 1fr; }
+      article p { min-height: 0; }
+      .listen-all { grid-template-columns: 38px 1fr; gap: 12px; padding: 15px; }
+      .play-mark { width: 38px; height: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="tag">Sound test · Sabre laser</div>
+    <h1>Écoute les <span>sons.</span></h1>
+    <p class="lead">Trois effets originaux pour ton jeu de combat. Appuie sur ▶ pour les écouter directement sur cette page — pas besoin de Roblox.</p>
+
+    <section class="listen-all" aria-labelledby="all-title">
+      <div class="play-mark" aria-hidden="true">▶</div>
+      <div>
+        <h2 id="all-title">Aperçu complet</h2>
+        <p>Les trois effets à la suite : Swing, Choc, puis Allumage.</p>
+        <audio controls preload="metadata" aria-label="Écouter les trois effets à la suite">
+          <source src="assets/audio/apercu-3-sons.mp3" type="audio/mpeg">
+          <source src="assets/audio/apercu-3-sons.wav" type="audio/wav">
+          Ton navigateur ne prend pas en charge la lecture audio.
+        </audio>
+      </div>
+    </section>
+
+    <div class="section-label">Écouter séparément</div>
+    <section class="tracks" aria-label="Effets sonores">
+      <article>
+        <div class="track-top"><h3>01 · Swing</h3><span class="duration">0,62 s</span></div>
+        <p>Souffle rapide et tranchant, avec une touche cinématique.</p>
+        <audio controls preload="metadata" aria-label="Écouter Swing">
+          <source src="assets/audio/swing.mp3" type="audio/mpeg">
+          <source src="assets/audio/swing.wav" type="audio/wav">
+          Ton navigateur ne prend pas en charge la lecture audio.
+        </audio>
+        <a class="download" href="assets/audio/swing.mp3" download>Télécharger le MP3</a>
+      </article>
+      <article>
+        <div class="track-top"><h3>02 · Choc</h3><span class="duration">0,34 s</span></div>
+        <p>Impact métallique brillant, bref et sec.</p>
+        <audio controls preload="metadata" aria-label="Écouter Choc">
+          <source src="assets/audio/choc.mp3" type="audio/mpeg">
+          <source src="assets/audio/choc.wav" type="audio/wav">
+          Ton navigateur ne prend pas en charge la lecture audio.
+        </audio>
+        <a class="download" href="assets/audio/choc.mp3" download>Télécharger le MP3</a>
+      </article>
+      <article>
+        <div class="track-top"><h3>03 · Allumage</h3><span class="duration">1,12 s</span></div>
+        <p>Claquement électrique, bourdonnement qui monte, puis enclenchement.</p>
+        <audio controls preload="metadata" aria-label="Écouter Allumage">
+          <source src="assets/audio/allumage.mp3" type="audio/mpeg">
+          <source src="assets/audio/allumage.wav" type="audio/wav">
+          Ton navigateur ne prend pas en charge la lecture audio.
+        </audio>
+        <a class="download" href="assets/audio/allumage.mp3" download>Télécharger le MP3</a>
+      </article>
+    </section>
+
+    <footer>Lecteur audio intégré · formats MP3 et WAV</footer>
+  </main>
+  <script>
+    const players = [...document.querySelectorAll('audio')];
+    players.forEach(player => player.addEventListener('play', () => {
+      players.filter(other => other !== player).forEach(other => other.pause());
+    }));
+  </script>
+</body>
+</html>
